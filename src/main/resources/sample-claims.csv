@@ -1,0 +1,11 @@
+policyNumber,claimType,amount,description,incidentDate,claimantName,claimantEmail
+POL-001,AUTO,2500.00,Rear-end collision at intersection,2024-01-15,John Doe,john.doe@email.com
+POL-002,AUTO,850.00,Parking lot fender bender,2024-01-16,Jane Smith,jane.smith@email.com
+POL-003,PROPERTY,15000.00,Water damage from burst pipe,2024-01-17,Robert Johnson,robert.j@email.com
+POL-004,HEALTH,350.00,Annual checkup and bloodwork,2024-01-18,Emily Davis,emily.d@email.com
+POL-005,AUTO,45000.00,Total loss from highway accident,2024-01-19,Michael Brown,michael.b@email.com
+POL-006,PROPERTY,8500.00,Roof damage from storm,2024-01-20,Sarah Wilson,sarah.w@email.com
+POL-007,HEALTH,1200.00,Emergency room visit,2024-01-21,David Lee,david.l@email.com
+POL-008,AUTO,3200.00,Hit and run damage,2024-01-22,Lisa Anderson,lisa.a@email.com
+POL-009,HEALTH,75.00,Prescription refill,2024-01-23,James Taylor,james.t@email.com
+POL-010,PROPERTY,125000.00,Fire damage to garage,2024-01-24,Jennifer Martinez,jennifer.m@email.com

@@ -1,0 +1,82 @@
+# Claims Integration Hub Configuration
+# =====================================
+# This demonstrates Spring Integration patterns with Azure messaging
+
+spring:
+  application:
+    name: claims-integration-hub
+
+  # Spring Integration settings
+  integration:
+    # Enable management for monitoring
+    management:
+      default-logging-enabled: true
+
+# Server configuration
+server:
+  port: 8081
+
+# Logging - verbose for learning purposes
+logging:
+  level:
+    root: INFO
+    # See all Spring Integration activity
+    org.springframework.integration: DEBUG
+    # See message flow
+    org.springframework.messaging: DEBUG
+    # Our application logs
+    com.example.claims: DEBUG
+
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+# Actuator endpoints for monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,integrationgraph
+  endpoint:
+    health:
+      show-details: always
+    # Spring Integration graph endpoint
+    integrationgraph:
+      enabled: true
+
+---
+# Local profile (default)
+spring:
+  config:
+    activate:
+      on-profile: local
+
+# Azure services disabled locally
+azure:
+  eventhubs:
+    enabled: false
+  servicebus:
+    enabled: false
+
+---
+# Azure profile (for deployment)
+spring:
+  config:
+    activate:
+      on-profile: azure
+
+  cloud:
+    azure:
+      # Event Hubs configuration (Phase 3)
+      eventhubs:
+        namespace: ${AZURE_EVENTHUB_NAMESPACE:}
+        connection-string: ${AZURE_EVENTHUB_CONNECTION_STRING:}
+
+      # Service Bus configuration (Phase 3)
+      servicebus:
+        namespace: ${AZURE_SERVICEBUS_NAMESPACE:}
+        connection-string: ${AZURE_SERVICEBUS_CONNECTION_STRING:}
+
+logging:
+  level:
+    org.springframework.integration: INFO
+    org.springframework.messaging: INFO
